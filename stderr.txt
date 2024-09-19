@@ -1,0 +1,4 @@
+   Compiling catsay v0.1.0 (C:\Users\daech\Projects\catsay)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.81s
+     Running `target\debug\catsay.exe woof`
+A cat shouldn't bark like a dog!
