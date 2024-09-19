@@ -1,5 +1,7 @@
 extern crate structopt;
+extern crate colored;
 
+use colored::*;
 use structopt::StructOpt;
 
 #[derive(StructOpt)]
@@ -16,10 +18,14 @@ fn main() {
     let message = options.message;    
 
     let eye = if options.dead { "x" } else { "o" };
-    println!("{}", message);
+    if message.to_lowercase() == "woof" {
+        eprintln!("A cat shouldn't bark like a dog!");
+    }
+
+    println!("{}", message.bright_yellow().underline());
     println!("  \\");
     println!("   \\");
     println!("    /\\_/\\");
-    println!("   ( {eye} {eye} )");
+    println!("   ( {eye} {eye} )",eye=eye.red().bold());
     println!("   ==_Y_==");
 }
