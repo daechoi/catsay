@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-fn main() {
-    let message = std::env::args()
-        .nth(1)
-        .expect("Missing message.  Usage: catsay <message>");
-    println!("{}", message);
-    println!("  \\");
-    println!("   \\");
-    println!("    /\\_/\\");
-    println!("   ( o o )");
-=======
-extern crate structopt;
-extern crate colored;
-
 use colored::*;
 use structopt::StructOpt;
 
@@ -38,6 +24,5 @@ fn main() {
     println!("   \\");
     println!("    /\\_/\\");
     println!("   ( {eye} {eye} )",eye=eye.red().bold());
->>>>>>> 4b1af52 (adds colors)
     println!("   ==_Y_==");
 }
