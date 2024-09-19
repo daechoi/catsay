@@ -1,11 +1,25 @@
+extern crate structopt;
+
+use structopt::StructOpt;
+
+#[derive(StructOpt)]
+struct Options {
+    #[structopt(default_value = "Meow!")]
+    message: String,
+
+    #[structopt(short = "d", long = "dead")]
+    dead: bool,
+}
+
 fn main() {
-    let message = std::env::args()
-        .nth(1)
-        .expect("Missing message.  Usage: catsay <message>");
+    let options = Options::from_args();
+    let message = options.message;    
+
+    let eye = if options.dead { "x" } else { "o" };
     println!("{}", message);
     println!("  \\");
     println!("   \\");
     println!("    /\\_/\\");
-    println!("   ( o o )");
+    println!("   ( {eye} {eye} )");
     println!("   ==_Y_==");
 }

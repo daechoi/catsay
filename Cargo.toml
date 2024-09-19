@@ -1,6 +1,8 @@
 [package]
 name = "catsay"
 version = "0.1.0"
+authors = ["Dae Choi <daechoi@outlook.com>"]
 edition = "2021"
 
 [dependencies]
+structopt = "0.3.26"
