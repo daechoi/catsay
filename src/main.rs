@@ -19,7 +19,7 @@ fn main() {
         eprintln!("A cat shouldn't bark like a dog!");
     }
 
-    println!("{}", message.bright_yellow().underline());
+    println!("{}", message.bright_yellow().underline().on_blue());
     println!("  \\");
     println!("   \\");
     println!("    /\\_/\\");
