@@ -4,3 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+<<<<<<< HEAD
+=======
+structopt = "0.3.26"
+colored = "2.1.0"
+>>>>>>> 4b1af52 (adds colors)
