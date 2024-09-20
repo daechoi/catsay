@@ -1,5 +1,6 @@
 use colored::*;
 use structopt::StructOpt;
+use failure::ResultExt;
 
 #[derive(StructOpt)]
 struct Options {
@@ -13,7 +14,7 @@ struct Options {
     catfile: Option<std::path::PathBuf>,
 }
 
-fn main() {
+fn main() -> Result<(), failure::Error> {
     let options = Options::from_args();
     let message = options.message;    
 
@@ -24,13 +25,15 @@ fn main() {
 
     match &options.catfile {
         Some(path) => {
-            let cat_template = std::fs::read_to_string(path).expect("Could not read file");
+            let cat_template = std::fs::read_to_string(path).with_context(|_| format!("could not read file {:?}", path))?;
             let cat_picture = cat_template.replace("{eye}", eye);
             println!("{}", message.bright_yellow().underline().on_blue());
             println!("{}", cat_picture);
+            Ok(())
         }
         None => {
             print_cat(&message, eye);
+            Ok(())
         }
     }
 
